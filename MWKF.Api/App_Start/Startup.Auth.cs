@@ -1,52 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
-using Microsoft.Owin.Security.OAuth;
-using Owin;
-using MWKF.Api.Providers;
-using MWKF.Api.Models;
-
-namespace MWKF.Api
+﻿namespace MWKF.Api
 {
-    using MWKF.Api.Models.Account;
+    using System;
+    using System.Globalization;
+    using System.Security.Claims;
+    using System.Security.Principal;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin;
+    using Microsoft.Owin.Security.Cookies;
+    using Microsoft.Owin.Security.OAuth;
+    using MWKF.Api.Data;
+    using MWKF.Api.Entities.Identity;
+    using MWKF.Api.Providers.Identity;
+    using Owin;
+
+    public static class IdentityExtensions
+    {
+        public static T GetUserId<T>(this IIdentity identity) 
+        {
+            if (identity == null)
+            {
+                throw new ArgumentNullException(nameof(identity));
+            }
+            ClaimsIdentity claimsIdentity = identity as ClaimsIdentity;
+            string text = claimsIdentity?.FindFirstValue("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier");
+            if (text != null)
+            {
+                return (T)((object)Convert.ChangeType(text, typeof(T), CultureInfo.InvariantCulture));
+            }
+            return default(T);
+        }
+    }
 
     public partial class Startup
     {
-        public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
-
-        public static string PublicClientId { get; private set; }
 
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context and user manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(DataContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            //app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            app.UseCookieAuthentication(new CookieAuthenticationOptions());
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            // Configure the sign in cookie
 
-            // Configure the application for OAuth based flow
-            PublicClientId = "self";
-            OAuthOptions = new OAuthAuthorizationServerOptions
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                TokenEndpointPath = new PathString("/Token"),
-                Provider = new ApplicationOAuthProvider(PublicClientId),
-                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
-                // In production mode set AllowInsecureHttp = false
-                AllowInsecureHttp = true
-            };
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                LoginPath = new PathString("/Account/Login"),
 
-            // Enable the application to use bearer tokens to authenticate users
-            app.UseOAuthBearerTokens(OAuthOptions);
+                Provider = new CookieAuthenticationProvider
+                {
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User, Guid>
+                    (TimeSpan.FromMinutes(30), (manager, user) => user.GenerateUserIdentityAsync(manager),ident => ident.GetUserId<Guid>()),
+
+                    //**** This what I did ***//
+                    OnException = context =>
+                    {
+                        Console.WriteLine(context.Exception.Message);
+                        throw context.Exception;
+                    }
+                }
+            });
+
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
             //app.UseMicrosoftAccountAuthentication(
@@ -54,18 +75,15 @@ namespace MWKF.Api
             //    clientSecret: "");
 
             //app.UseTwitterAuthentication(
-            //    consumerKey: "",
-            //    consumerSecret: "");
+            //   consumerKey: "",
+            //   consumerSecret: "");
+           // app.UseGitHubAuthentication("1bfcefabf8915347782a", "db683ecf2f28f09f65432e9cff972673d9d3a522");
 
-            //app.UseFacebookAuthentication(
-            //    appId: "",
-            //    appSecret: "");
+            //app.UseRedditAuthentication("t3xal_3BqrnFEg", "FcyBUZI88TkQe_ydgvy5fU1J3a8");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseFacebookAuthentication("1627454327496577", "1423363bfda5af73029608170b7b0e34");
+
+            app.UseGoogleAuthentication("136994307495-35s7hbhm9jkn43mis7dnqnjl3ooapflu.apps.googleusercontent.com", "wZvoCl-d_AQ2MpzGd-3fxmCY");
         }
     }
 }
