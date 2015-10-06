@@ -9,6 +9,7 @@
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
     using MWKF.Api.Entities.Identity;
+    using MWKF.Api.Providers.Identity;
 
     public sealed class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {

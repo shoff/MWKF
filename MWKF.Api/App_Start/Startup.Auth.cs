@@ -4,14 +4,17 @@
     using System.Globalization;
     using System.Security.Claims;
     using System.Security.Principal;
+    using System.Web.Http;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
+    using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
     using MWKF.Api.Data;
     using MWKF.Api.Entities.Identity;
     using MWKF.Api.Providers.Identity;
+    using MWKF.Api.Services;
     using Owin;
 
     public static class IdentityExtensions
@@ -38,10 +41,15 @@
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+
+            app.UseWebApi(GlobalConfiguration.Configuration);
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(DataContext.Create);
+            
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             //app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+            //IAuthenticationManager authenticationManager = Ioc.Instance.Resolve<IAuthenticationManager>();
+
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user

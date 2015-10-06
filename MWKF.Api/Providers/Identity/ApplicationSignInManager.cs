@@ -165,16 +165,25 @@
         {
             if (options == null)
             {
-                throw new ArgumentNullException("options");
+                throw new ArgumentNullException(nameof(options));
             }
 
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
             }
-            return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(),
-                context.Authentication,
-                Ioc.Instance.Resolve<IEntityRepository<User, Guid>>());
+
+            var applicationUserManager = context.GetUserManager<ApplicationUserManager>();
+            // should we try to create it from our container if MS screws the pooch here?
+
+            if (applicationUserManager == null)
+            {
+                applicationUserManager = ((ApplicationUserManager)Ioc.Instance.Resolve<IApplicationUserManager>());
+            }
+
+            var auth = context.Authentication;
+
+            return new ApplicationSignInManager(applicationUserManager, auth, Ioc.Instance.Resolve<IEntityRepository<User, Guid>>());
         }
     }
 }

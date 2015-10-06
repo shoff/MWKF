@@ -7,13 +7,15 @@
     using System.Web;
     using Microsoft.Owin.Security;
 
-    public class ApplicationAuthenticationManager : IAuthenticationManager
+    public class ApplicationAuthenticationManager :  IAuthenticationManager
     {
         private readonly IAuthenticationManager authenticationManager;
 
         /// <summary>Initializes a new instance of the <see cref="ApplicationAuthenticationManager"/> class.</summary>
         public ApplicationAuthenticationManager()
         {
+            // TODO this could really bite you in the ass.
+            // TODO need to flesh this out
             this.authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
         }
 
