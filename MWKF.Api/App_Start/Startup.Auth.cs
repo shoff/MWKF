@@ -13,6 +13,8 @@ using MWKF.Api.Models;
 
 namespace MWKF.Api
 {
+    using MWKF.Api.Models.Account;
+
     public partial class Startup
     {
         public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }

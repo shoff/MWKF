@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MWKF.Api.Models
+﻿namespace MWKF.Api.Models.Account
 {
+    using System.Collections.Generic;
+
     // Models returned by AccountController actions.
 
     public class ExternalLoginViewModel

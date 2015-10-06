@@ -19,12 +19,14 @@ using MWKF.Api.Results;
 
 namespace MWKF.Api.Controllers
 {
+    using MWKF.Api.Models.Account;
+
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
-        private ApplicationUserManager _userManager;
+        private ApplicationUserManager userManager;
 
         public AccountController()
         {
@@ -39,14 +41,8 @@ namespace MWKF.Api.Controllers
 
         public ApplicationUserManager UserManager
         {
-            get
-            {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
+            get { return this.userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
+            private set { this.userManager = value;}
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
@@ -375,16 +371,14 @@ namespace MWKF.Api.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && _userManager != null)
+            if (disposing && this.userManager != null)
             {
-                _userManager.Dispose();
-                _userManager = null;
+                this.userManager.Dispose();
+                this.userManager = null;
             }
 
             base.Dispose(disposing);
         }
-
-        #region Helpers
 
         private IAuthenticationManager Authentication
         {
@@ -488,7 +482,5 @@ namespace MWKF.Api.Controllers
                 return HttpServerUtility.UrlTokenEncode(data);
             }
         }
-
-        #endregion
     }
 }

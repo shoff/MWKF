@@ -8,23 +8,40 @@ using Newtonsoft.Json.Serialization;
 
 namespace MWKF.Api
 {
+    using System.Net.Http.Headers;
+    using Newtonsoft.Json;
+
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static void Register(HttpConfiguration httpConfiguration)
         {
-            // Web API configuration and services
-            // Configure Web API to use only bearer token authentication.
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            httpConfiguration.EnableCors();
+
+            var json = httpConfiguration.Formatters.JsonFormatter;
+            httpConfiguration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            //json.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
+
+            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver()
+            {
+                IgnoreSerializableInterface = true,
+                IgnoreSerializableAttribute = true,
+                SerializeCompilerGeneratedMembers = true
+            };
+            //httpConfiguration.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling =
+            //    Newtonsoft.Json.PreserveReferencesHandling.None;
+            //httpConfiguration.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = 
+            //    Newtonsoft.Json.PreserveReferencesHandling.All;
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+            httpConfiguration.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //httpConfiguration.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
         }
     }
 }

@@ -13,6 +13,8 @@ using MWKF.Api.Models;
 
 namespace MWKF.Api.Providers
 {
+    using MWKF.Api.Models.Account;
+
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string _publicClientId;
