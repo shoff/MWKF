@@ -3,11 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Data.Entity.ModelConfiguration.Conventions;
     using System.Data.Entity.Validation;
     using System.Linq;
     using System.Threading.Tasks;
+    using MWKF.Api.Exceptions;
     using MWKF.Api.Interfaces;
     using NLog;
 
@@ -29,8 +29,6 @@
         /// </summary>
         public DataContext()
             : base("DefaultConnection")
-
-        //: base(@"Data Source=SQL5013.myASP.NET;Initial Catalog=DB_9BB5A3_angularforum;User Id=DB_9BB5A3_angularforum_admin;Password=xo2Die5l;")
         {
         }
 
@@ -102,17 +100,17 @@
                 var fullErrorMessage = string.Join(
                     "; ",
                     errorMessages.Select(
-                        e => string.Format("[Entity: {0}, Property: {1}] {2}", e.Entity, e.PropertyName, e.ErrorMessage)));
+                        e => $"[Entity: {e.Entity}, Property: {e.PropertyName}] {e.ErrorMessage}"));
 
                 var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
 
-                logger.Error(exceptionMessage);
+                logger.Error(ex, exceptionMessage);
                 throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors, ex);
             }
             catch (Exception e)
             {
-                logger.Error(e.Message);
-                logger.Error(e.StackTrace);
+                logger.Error(e, e.Message);
+                logger.Error(e, e.StackTrace);
                 throw;
             }
         }
@@ -145,7 +143,7 @@
         {
             if (entity == null)
             {
-                throw new ArgumentNullException("entity");
+                throw new ParameterNullException(nameof(entity));
             }
             this.Entry(entity).State = EntityState.Modified;
         }
@@ -201,30 +199,6 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-
-            //modelBuilder.Configurations.Add(new TagConfiguration());
-
-            //modelBuilder.Configurations.Add(new UserConfiguration());
-            //modelBuilder.Configurations.Add(new UserLoginConfiguration());
-            //modelBuilder.Configurations.Add(new UserClaimConfiguration());
-            //modelBuilder.Configurations.Add(new UserGroupConfiguration());
-            //modelBuilder.Configurations.Add(new GroupConfiguration());
-
-            //// Forums
-            //modelBuilder.Configurations.Add(new CategoryConfiguration());
-            //modelBuilder.Configurations.Add(new ForumConfiguration());
-            //modelBuilder.Configurations.Add(new TopicConfiguration());
-            //modelBuilder.Configurations.Add(new PostConfiguration());
-            //modelBuilder.Configurations.Add(new AvatarConfiguration());
-            //modelBuilder.Configurations.Add(new WebsiteConfiguration());
-
-            //modelBuilder.Entity<MessageReadByUser>().HasKey(l => new
-            //{
-            //    l.GroupMessageId,
-            //    l.UserId
-            //}).ToTable("MessagesReadByUsers");
-
-
         }
 
         /// <summary>

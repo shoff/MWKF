@@ -14,11 +14,18 @@
     using MWKF.Api.Repositories;
     using MWKF.Api.Repositories.Interfaces;
     using MWKF.Api.Services;
+    using MWKF.Api.Services.Interfaces;
 
     public class ContainerConfig
     {
         public static void RegisterComponents()
         {
+            // this will register all of our controllers
+            var assemblyDiscoveryService = Ioc.Instance.Resolve<IAssemblyDiscoveryService>();
+            assemblyDiscoveryService.GenerateDependencyList();
+            var controllerRegistrationService = Ioc.Instance.Resolve<IControllerRegistrationService>();
+            controllerRegistrationService.RegisterControllers();
+
             // Data
             Ioc.Instance.AddComponentWithLifestyle("IDataContext", typeof(IDataContext), typeof(DataContext), LifestyleType.PerWebRequest);
 

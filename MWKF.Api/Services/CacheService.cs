@@ -12,6 +12,7 @@
     /// </summary>
     /// <remarks>
     /// Applications that are not hosted in a web aware host should not use this service.
+    /// TODO: add async stuff
     /// </remarks>
     public sealed class CacheService : ICacheService
     {

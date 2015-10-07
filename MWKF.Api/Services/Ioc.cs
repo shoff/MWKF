@@ -892,6 +892,22 @@
                     ClassType = typeof(CacheService),
                     LifeStyle = LifestyleType.Singleton
                 });
+
+                this.Add(new RegisteredComponent
+                {
+                    Key = "ControllerRegistrationService",
+                    ServiceType = typeof(IControllerRegistrationService),
+                    ClassType = typeof(ControllerRegistrationService),
+                    LifeStyle = LifestyleType.Singleton
+                });
+
+                this.Add(new RegisteredComponent
+                {
+                    Key = "AssemblyDiscoveryService",
+                    ServiceType = typeof(IAssemblyDiscoveryService),
+                    ClassType = typeof(AssemblyDiscoveryService),
+                    LifeStyle = LifestyleType.Singleton
+                });
             }
 
             /// <summary>

@@ -97,7 +97,6 @@
         [DataType(DataType.EmailAddress)]
         public override string Email { get; set; }
 
-
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
@@ -122,8 +121,8 @@
         /// <value>
         /// The rank identifier.
         /// </value>
-        [ForeignKey("Rank")]
-        public int? RankId { get; set; }
+        [ForeignKey("KendoRank")]
+        public Guid KendoRankId { get; set; }
 
         /// <summary>
         /// Gets or sets the rank.
@@ -152,15 +151,6 @@
         [Required]
         [DataType(DataType.Date)]
         public DateTime LastLogin { get; set; }
-
-        /// <summary>
-        /// Gets or sets the avatar identifier.
-        /// </summary>
-        /// <value>
-        /// The avatar identifier.
-        /// </value>
-        [ForeignKey("UserIcon")]
-        public int AvatarId { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="User"/> is active.
