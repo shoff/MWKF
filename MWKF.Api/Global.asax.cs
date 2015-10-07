@@ -1,11 +1,13 @@
 ﻿namespace MWKF.Api
 {
+    using System.Data.Entity;
     using System.Web;
     using System.Web.Http;
     using System.Web.Http.Dispatcher;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
+    using MWKF.Api.Data;
     using MWKF.Api.Services;
 
     public class WebApiApplication : HttpApplication
@@ -22,6 +24,8 @@
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Database.SetInitializer<DataContext>(new EntityContextInitializer());
         }
     }
 }

@@ -7,22 +7,18 @@
 
     public class UserLogin : IdentityUserLogin<Guid>
     {
-        /// <summary>
-        /// Gets or sets the user login identifier.
-        /// </summary>
-        /// <value>
-        /// The user login identifier.
-        /// </value>
         [Key]
         public Guid UserLoginId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the user.
-        /// </summary>
-        /// <value>
-        /// The user.
-        /// </value>
-        [ForeignKey("UserId")]
+        [ForeignKey("User")]
+        public override Guid UserId { get; set; }
+
         public User User { get; set; }
+
+        [MaxLength(256)]
+        public override string ProviderKey { get; set; }
+
+        [MaxLength(256)]
+        public override string LoginProvider { get; set; }
     }
 }

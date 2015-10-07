@@ -24,6 +24,10 @@
             this.Active = true;
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public override Guid Id { get; set; }
+
         /// <summary>
         /// Gets or sets the name of the user.
         /// </summary>

@@ -1,6 +1,8 @@
 ﻿namespace MWKF.Api.Entities
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class KendoRank
     {
@@ -10,6 +12,8 @@
         /// <value>
         /// The kendo rank identifier.
         /// </value>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid KendoRankId  { get; set; }
 
         /// <summary>
@@ -18,6 +22,7 @@
         /// <value>
         /// The name of the kendo rank.
         /// </value>
+        [Required]
         public string KendoRankName { get; set; }
 
         /// <summary>
@@ -26,6 +31,19 @@
         /// <value>
         /// The kendo rank numeric.
         /// </value>
+        [Required]
         public int KendoRankNumeric { get; set; }
+
+        [Required, MaxLength(512)]
+        public string Eligibility { get; set; }
+
+        [Required, MaxLength(30)]
+        public string MinimumRankOfExaminers { get; set; }
+
+        [Required]
+        public int NumberOfExaminers { get; set; }
+
+        [Required]
+        public int ConsentingExaminersRequired { get; set; }
     }
 }
