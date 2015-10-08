@@ -334,6 +334,15 @@ namespace MWKF.Api {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to determine userid from given parameter.
+        /// </summary>
+        internal static string UnableToDetermineId {
+            get {
+                return ResourceManager.GetString("UnableToDetermineId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User with the id {0} could not be found.
         /// </summary>
         internal static string UserWithIdNotFound {

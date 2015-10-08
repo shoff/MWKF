@@ -1,19 +1,23 @@
 ﻿namespace MWKF.Api.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
-    using System.Threading.Tasks;
     using MWKF.Api.Entities;
+    using MWKF.Api.Entities.Identity;
+    using MWKF.Api.Extensions;
     using MWKF.Api.Interfaces;
 
     public sealed class EntityContextInitializer : DropCreateDatabaseIfModelChanges<DataContext>, ISingletonLifestyle
     {
-        private List<KendoRank> kendoRanks; 
-
-
+        private List<KendoRank> kendoRanks;
+        private List<UserRole> userRoles;
+        
         protected override void Seed(DataContext context)
         {
             AddKendoRanks(context);
+            AddRoles(context);
+            AddAdminUser(context);
         }
 
         private void AddKendoRanks(DataContext context)
@@ -62,6 +66,45 @@
             };
 
             kendoRanks.ForEach(kr => context.KendoRanks.Add(kr));
+            context.Commit();
+        }
+
+        private void AddRoles(DataContext context)
+        {
+            this.userRoles = new List<UserRole>
+            {
+                 new UserRole { RoleName="Administrator" },
+                 new UserRole {RoleName = "Contributor" },
+                 new UserRole { RoleName="Member" }
+            };
+            this.userRoles.ForEach(ur => context.UserRoles.Add(ur));
+            context.Commit();
+        }
+
+        private void AddAdminUser(DataContext context)
+        {
+            User user = new User
+            {
+                Active = true,
+                DisplayName = "Webmaster",
+                Email = "Admin@mwkf.org",
+                EmailConfirmed = true,
+                JoinedDate = DateTime.UtcNow,
+                KendoRank = this.kendoRanks.FindLast(x => x.KendoRankName != ""),
+                LastLogin = DateTime.UtcNow,
+                LastSearch = "na",
+                MaximumDaysBetweenPasswordChange = 180,
+                PasswordLastChangedDate = DateTime.UtcNow,
+                Profile = new UserProfile
+                {
+                     AllowHtmlSig = true
+                },
+                UserName = "Admin",
+                Password = "P@ssword1".Sha256Hash(),
+                PasswordHash = "P@ssword1".Sha256Hash()
+            };
+            this.userRoles.ForEach(ur => user.Roles.Add(ur));
+            context.Users.Add(user);
             context.Commit();
         }
     }

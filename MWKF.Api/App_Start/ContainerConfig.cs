@@ -33,7 +33,10 @@
             Ioc.Instance.AddComponentWithLifestyle("IUserRepository", typeof(IEntityRepository<User, Guid>), typeof(EntityRepository<User, Guid>), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("IUserClaimRepository", typeof(IEntityRepository<UserClaim, Guid>), typeof(EntityRepository<UserClaim, Guid>), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("IUserLoginRepository", typeof(IEntityRepository<UserLogin, Guid>), typeof(EntityRepository<UserLogin, Guid>), LifestyleType.PerWebRequest);
+            Ioc.Instance.AddComponentWithLifestyle("IUserRoleRepository", typeof(IEntityRepository<UserRole, Guid>), typeof(EntityRepository<UserRole, Guid>), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("ILogRepository", typeof(IEntityRepository<Log, Guid>), typeof(EntityRepository<Log, Guid>), LifestyleType.PerWebRequest);
+            Ioc.Instance.AddComponentWithLifestyle("IKendoRankRepository", typeof(IEntityRepository<KendoRank, Guid>), typeof(EntityRepository<KendoRank, Guid>), LifestyleType.PerWebRequest);
+
             // Identity
             //Ioc.Instance.AddComponentWithLifestyle("GroupManager", typeof(IGroupManager), typeof(ApplicationRoleManager), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("ApplicationSignInManager", typeof(IApplicationSignInManager), typeof(ApplicationSignInManager), LifestyleType.PerWebRequest);

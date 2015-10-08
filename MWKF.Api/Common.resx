@@ -214,4 +214,7 @@
   <data name="UserWithIdNotFound" xml:space="preserve">
     <value>User with the id {0} could not be found</value>
   </data>
+  <data name="UnableToDetermineId" xml:space="preserve">
+    <value>Unable to determine userid from given parameter</value>
+  </data>
 </root>

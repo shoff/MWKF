@@ -3,10 +3,12 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Data.Entity.ModelConfiguration.Conventions;
     using System.Data.Entity.Validation;
     using System.Linq;
     using System.Threading.Tasks;
+    using MWKF.Api.Entities.Configurations;
     using MWKF.Api.Exceptions;
     using MWKF.Api.Interfaces;
     using NLog;
@@ -199,6 +201,7 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Configurations.Add(new UserConfiguration());
         }
 
         /// <summary>
