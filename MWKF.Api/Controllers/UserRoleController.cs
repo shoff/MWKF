@@ -8,6 +8,7 @@
     using System.Web.Http;
     using System.Web.Http.Cors;
     using System.Web.Http.Description;
+    using MWKF.Api.Attributes;
     using MWKF.Api.Collections;
     using MWKF.Api.Entities.Identity;
     using MWKF.Api.Repositories.Interfaces;
@@ -50,6 +51,54 @@
 
                 
                 return await Task.FromResult((IHttpActionResult)this.Ok(userArray));
+            }
+            catch (Exception e)
+            {
+                logger.Error(e, e.Message);
+                return this.InternalServerError(e);
+            }
+        }
+
+        [Route("{roleId}", Name = "GetUserRoleByRoleId")]
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> Get(string roleId)
+        {
+            // Todo pass email or username rather than user id?
+            try
+            {
+                Guid id;
+                if (Guid.TryParse(roleId, out id))
+                {
+                    var userRole = await this.userRoleRepository.GetAsync
+                        (x => x.RoleId == id, includeProperties: "Users");
+
+                    if (userRole != null)
+                    {
+                        return this.Ok(userRole);
+                    }
+                }
+                else
+                {
+                    return this.BadRequest(Common.UnableToDetermineId);
+                }
+            }
+            catch (Exception e)
+            {
+                logger.Error(e, e.Message);
+                return this.InternalServerError(e);
+            }
+            return NotFound();
+        }
+
+        [Route("")]
+        [CheckModelForNull]
+        [ValidateModelState]
+        public async Task<IHttpActionResult> Post([FromBody] UserRole userRole)
+        {
+            try
+            {
+                await this.userRoleRepository.InsertAsync(userRole);
+                return this.CreatedAtRoute("GetUserRoleByRoleId", new { RoleId = userRole.RoleId}, userRole);
             }
             catch (Exception e)
             {
