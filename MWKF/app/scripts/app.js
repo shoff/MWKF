@@ -1,17 +1,4 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name mwkfApp
- * @description
- * # mwkfApp
- *
- * Main module of the application.
- */
 angular
-  .module('mwkfApp', [
-    'ngCookies',
-    'ngSanitize',
-    'ngTouch',
-    'ui.router'
-  ]);
+  .module('mwkfApp', ['ngCookies','ngSanitize','ngTouch','ui.router','pascalprecht.translate']); //,'ngAnimate']);

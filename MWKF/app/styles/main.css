@@ -15,7 +15,7 @@ body { padding: 0;}
   .jumbotron {border-bottom: 0;}}
 
 .main {
-  max-width: 320px;
+  /*max-width: 320px;*/
   margin: 0 auto;
   padding-bottom: 30px;
 }
@@ -95,3 +95,4 @@ h3 {
 [ui-view].ng-leave-active{
   opactity: 0;
 }
+.not-small{width: 100%;}

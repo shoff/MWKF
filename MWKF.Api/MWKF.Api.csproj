@@ -229,7 +229,9 @@
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DataContext1.cs" />
     <Compile Include="Data\EntityContextInitializer.cs" />
+    <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Configurations\UserConfiguration.cs" />
+    <Compile Include="Entities\Dojo.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Identity\User.cs" />
     <Compile Include="Entities\Identity\UserClaim.cs" />
