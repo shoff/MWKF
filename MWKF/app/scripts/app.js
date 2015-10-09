@@ -12,5 +12,6 @@ angular
   .module('mwkfApp', [
     'ngCookies',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ]);

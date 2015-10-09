@@ -5,6 +5,8 @@ version 0.12.1.
 
 ## Build & development
 
+bower install angular-ui-router
+
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
