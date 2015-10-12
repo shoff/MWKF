@@ -14,6 +14,7 @@
         private IDbSet<UserRole> userRoles;
         private IDbSet<KendoRank> kendoRanks;
         private IDbSet<Dojo> dojos;
+        private IDbSet<Address> addresses;
 
 
         public IDbSet<User> Users => this.users ?? (this.users = this.SetEntity<User>());
@@ -31,5 +32,7 @@
         public IDbSet<Dojo> Dojos => this.dojos ?? (this.dojos = this.SetEntity<Dojo>());
 
         public IDbSet<Log> Logs => this.logs ?? (this.logs = this.SetEntity<Log>());
+
+        public IDbSet<Address> Addresses => this.addresses ?? (this.addresses = this.SetEntity<Address>());
     }
 }

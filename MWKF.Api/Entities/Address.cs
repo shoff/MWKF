@@ -10,18 +10,18 @@
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid AddressId { get; set; }
 
-        [Required]
+        [MaxLength(256)]
         public string AddressLine1 { get; set; }
         
         public string AddressLine2 { get; set; }
 
-        [Required]
+        [MaxLength(256)]
         public string City { get; set; }
 
-        [Required]
+        [MaxLength(60)]
         public string State { get; set; }
 
-        [Required, MaxLength(10)]
+        [MaxLength(10)]
         public string ZipCode { get; set; }
 
     }

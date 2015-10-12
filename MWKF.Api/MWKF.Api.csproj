@@ -223,6 +223,7 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DojoController.cs" />
     <Compile Include="Controllers\KendoRankController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRoleController.cs" />

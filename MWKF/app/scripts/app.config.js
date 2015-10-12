@@ -94,3 +94,4 @@ angular
     $translateProvider.useSanitizeValueStrategy('escape');
 
   })
+  .constant('API_URL', 'http://localhost:8999/api/v1/');
