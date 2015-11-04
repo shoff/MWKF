@@ -15,8 +15,12 @@
         private IDbSet<KendoRank> kendoRanks;
         private IDbSet<Dojo> dojos;
         private IDbSet<Address> addresses;
-
-
+        private IDbSet<DojoMembership> dojoMemberships;
+        private IDbSet<Federation> federations;
+        private IDbSet<FederationMembership> federationMemberships;
+        private IDbSet<FederationOfficer> federationOfficers;
+        private IDbSet<OfficerRole> officerRoles;
+        
         public IDbSet<User> Users => this.users ?? (this.users = this.SetEntity<User>());
 
         public IDbSet<UserClaim> UserClaims => this.userClaims ?? (this.userClaims = this.SetEntity<UserClaim>());
@@ -34,5 +38,15 @@
         public IDbSet<Log> Logs => this.logs ?? (this.logs = this.SetEntity<Log>());
 
         public IDbSet<Address> Addresses => this.addresses ?? (this.addresses = this.SetEntity<Address>());
+
+        public IDbSet<DojoMembership> DojoMemberships => this.dojoMemberships ?? (this.dojoMemberships = this.SetEntity<DojoMembership>());
+
+        public IDbSet<Federation> Federations => this.federations ?? (this.federations = this.SetEntity<Federation>());
+
+        public IDbSet<FederationMembership> FederationMemberships => this.federationMemberships ?? (this.federationMemberships = this.SetEntity<FederationMembership>());
+
+        public IDbSet<FederationOfficer> FederationOfficers => this.federationOfficers ?? (this.federationOfficers = this.SetEntity<FederationOfficer>());
+
+        public IDbSet<OfficerRole> OfficerRoles => this.officerRoles ?? (this.officerRoles = this.SetEntity<OfficerRole>());
     }
 }

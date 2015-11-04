@@ -224,6 +224,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DojoController.cs" />
+    <Compile Include="Controllers\FederationController.cs" />
     <Compile Include="Controllers\KendoRankController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRoleController.cs" />
@@ -233,13 +234,18 @@
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Configurations\UserConfiguration.cs" />
     <Compile Include="Entities\Dojo.cs" />
+    <Compile Include="Entities\DojoMembership.cs" />
     <Compile Include="Entities\Event.cs" />
+    <Compile Include="Entities\Federation.cs" />
+    <Compile Include="Entities\FederationMembership.cs" />
+    <Compile Include="Entities\FederationOfficer.cs" />
     <Compile Include="Entities\Identity\User.cs" />
     <Compile Include="Entities\Identity\UserClaim.cs" />
     <Compile Include="Entities\Identity\UserLogin.cs" />
     <Compile Include="Entities\Identity\UserProfile.cs" />
     <Compile Include="Entities\Identity\UserRole.cs" />
     <Compile Include="Entities\KendoRank.cs" />
+    <Compile Include="Entities\OfficerRole.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -255,6 +261,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511040102245_Kendo.cs" />
+    <Compile Include="Migrations\201511040102245_Kendo.Designer.cs">
+      <DependentUpon>201511040102245_Kendo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AccountBindingModels.cs" />
     <Compile Include="Models\Account\AccountViewModels.cs" />
     <Compile Include="Models\Account\IdentityModels.cs" />
@@ -297,7 +308,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Federation\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -308,6 +321,9 @@
     <EmbeddedResource Include="Common.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511040102245_Kendo.resx">
+      <DependentUpon>201511040102245_Kendo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

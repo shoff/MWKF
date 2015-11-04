@@ -1,5 +1,6 @@
 ﻿namespace MWKF.Api.Entities
 {
+    using Identity;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -17,18 +18,28 @@
         public Guid FederationOfficerId { get; set; }
 
         /// <summary>
-        /// User who's holding the officer role for this federation
+        /// User id for the person who's holding the officer role for this federation
         /// </summary>
         [Required]
         [ForeignKey("User")]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Officer role this user is holding
+        /// Officer role id for the office this user is holding
         /// </summary>
         [Required]
         [ForeignKey("OfficerRole")]
         public Guid OfficerRoleId { get; set; }
+
+        /// <summary>
+        /// User who's holding the officer role for this federation
+        /// </summary> 
+        public User User { get; set; }
+
+        /// <summary>
+        /// Officer role this user is holding
+        /// </summary> 
+        public OfficerRole OfficerRole { get; set; }
 
         //TODO - Email of the officer (specific to the office and not the user) in this entity or the OfficerRole entity?
         [Required]

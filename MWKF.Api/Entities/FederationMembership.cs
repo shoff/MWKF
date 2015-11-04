@@ -1,5 +1,6 @@
 ﻿namespace MWKF.Api.Entities
 {
+    using Identity;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -17,19 +18,29 @@
         public Guid FederationMembershipId { get; set; }
          
         /// <summary>
-        /// User who's membership to the federation is defined.
+        /// User id for who's membership to the federation is defined.
         /// </summary>
         [Required]
         [ForeignKey("User")]
         public Guid UserId { get; set; }
          
         /// <summary>
-        /// User who's membership to the dojo is defined.
+        /// Federation id the user is a member of
         /// </summary>
         [Required]
         [ForeignKey("Federation")]
         public Guid FederationId { get; set; }
-        
+
+        /// <summary>
+        /// User who's membership to the federation is defined.
+        /// </summary> 
+        public User User { get; set; }
+
+        /// <summary>
+        /// Federation the user is a member of
+        /// </summary> 
+        public Federation Federation { get; set; }
+
         /// <summary>
         /// Year for which this user is a member of the federation
         /// </summary>
