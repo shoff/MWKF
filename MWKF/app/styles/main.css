@@ -96,3 +96,4 @@ h3 {
   opactity: 0;
 }
 .not-small{width: 100%;}
+.divide {border-right: 1px solid #ccc;padding-right: 10px; margin-right: -10px;}
