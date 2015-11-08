@@ -1,15 +1,15 @@
-﻿namespace MWKF.Api
-{
-    using System;
-    using System.Data.Entity;
-    using System.Web;
-    using System.Web.Http;
-    using System.Web.Http.Dispatcher;
-    using System.Web.Mvc;
-    using System.Web.Routing;
-    using MWKF.Api.Data;
-    using MWKF.Api.Services;
+﻿using System;
+using System.Data.Entity;
+using System.Web;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using System.Web.Mvc;
+using System.Web.Routing;
+using AUSKF.Api.Data;
+using AUSKF.Api.Services;
 
+namespace AUSKF.Api
+{
     public class WebApiApplication : HttpApplication
     {
         protected void Application_Start()

@@ -1,10 +1,10 @@
-﻿namespace MWKF.Api.Entities
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using MWKF.Api.Entities.Identity;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using AUSKF.Api.Entities.Identity;
 
+namespace AUSKF.Api.Entities
+{
     public class Event
     {
         [Key]

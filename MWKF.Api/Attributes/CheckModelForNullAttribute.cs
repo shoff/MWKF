@@ -1,12 +1,12 @@
-﻿namespace MWKF.Api.Attributes
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Web.Http.Controllers;
-    using System.Web.Http.Filters;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Filters;
 
+namespace AUSKF.Api.Attributes
+{
     [AttributeUsage(AttributeTargets.Method)]
     public class CheckModelForNullAttribute : ActionFilterAttribute
     {

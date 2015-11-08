@@ -1,19 +1,19 @@
-﻿namespace MWKF.Api.Services
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Web.Http.Dispatcher;
-    using Castle.Core;
-    using Castle.Core.Internal;
-    using Castle.MicroKernel;
-    using Castle.MicroKernel.Registration;
-    using Castle.Windsor;
-    using MWKF.Api.Factories;
-    using MWKF.Api.Factories.Interfaces;
-    using MWKF.Api.Services.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Http.Dispatcher;
+using AUSKF.Api.Factories;
+using AUSKF.Api.Factories.Interfaces;
+using AUSKF.Api.Services.Interfaces;
+using Castle.Core;
+using Castle.Core.Internal;
+using Castle.MicroKernel;
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 
+namespace AUSKF.Api.Services
+{
     public sealed class Ioc
     {
         // TODO: Ioc controller that displays information about all of the items in the container for an administration site.

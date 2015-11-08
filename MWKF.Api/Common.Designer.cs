@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MWKF.Api {
+namespace AUSKF.Api {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MWKF.Api {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MWKF.Api.Common", typeof(Common).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AUSKF.Api.Common", typeof(Common).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

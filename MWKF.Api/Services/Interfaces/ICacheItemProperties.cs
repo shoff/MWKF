@@ -1,8 +1,8 @@
-﻿namespace MWKF.Api.Services.Interfaces
-{
-    using System;
-    using System.Web.Caching;
+﻿using System;
+using System.Web.Caching;
 
+namespace AUSKF.Api.Services.Interfaces
+{
     public interface ICacheItemProperties
     {
         /// <summary>

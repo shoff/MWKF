@@ -1,11 +1,11 @@
-﻿namespace MWKF.Api.Factories
-{
-    using System;
-    using System.Net.Http;
-    using System.Web.Http.Controllers;
-    using System.Web.Http.Dispatcher;
-    using MWKF.Api.Services;
+﻿using System;
+using System.Net.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Dispatcher;
+using AUSKF.Api.Services;
 
+namespace AUSKF.Api.Factories
+{
     /// <summary>
     /// Used to resolve the ApiController for WebApi
     /// </summary>

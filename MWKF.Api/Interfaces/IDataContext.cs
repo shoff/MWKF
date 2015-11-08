@@ -1,4 +1,4 @@
-﻿namespace MWKF.Api.Interfaces
+﻿namespace AUSKF.Api.Interfaces
 {
     public interface IDataContext : IQueryableDataContext
     {

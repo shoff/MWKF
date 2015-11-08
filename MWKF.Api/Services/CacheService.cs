@@ -1,12 +1,12 @@
-﻿namespace MWKF.Api.Services
-{
-    using System;
-    using System.Web;
-    using System.Web.Caching;
-    using MWKF.Api.Factories.Interfaces;
-    using MWKF.Api.Services.Interfaces;
-    using NLog;
+﻿using System;
+using System.Web;
+using System.Web.Caching;
+using AUSKF.Api.Factories.Interfaces;
+using AUSKF.Api.Services.Interfaces;
+using NLog;
 
+namespace AUSKF.Api.Services
+{
     /// <summary>
     ///   Ioc ready caching service.
     /// </summary>

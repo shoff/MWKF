@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Factories.Interfaces
-{
-    using System;
-    using System.Web.Caching;
-    using MWKF.Api.Services.Interfaces;
+﻿using System;
+using System.Web.Caching;
+using AUSKF.Api.Services.Interfaces;
 
+namespace AUSKF.Api.Factories.Interfaces
+{
     public interface ICacheItemPropertiesFactory
     {
         /// <summary>

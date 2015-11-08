@@ -1,13 +1,13 @@
-﻿namespace MWKF.Api.Providers.Interfaces
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity;
-    using MWKF.Api.Entities.Identity;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AUSKF.Api.Entities.Identity;
+using Microsoft.AspNet.Identity;
 
+namespace AUSKF.Api.Providers.Interfaces
+{
     /// <summary>
     /// </summary>
     public interface IApplicationUserManager

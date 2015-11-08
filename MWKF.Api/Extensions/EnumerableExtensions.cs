@@ -1,8 +1,8 @@
-﻿namespace MWKF.Api.Extensions
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+namespace AUSKF.Api.Extensions
+{
     public static class EnumerableExtensions
     {
         /// <summary>

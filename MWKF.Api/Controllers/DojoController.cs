@@ -1,20 +1,20 @@
-﻿namespace MWKF.Api.Controllers
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Threading.Tasks;
-    using System.Web.Http;
-    using System.Web.Http.Cors;
-    using System.Web.Http.Description;
-    using MWKF.Api.Collections;
-    using MWKF.Api.Entities;
-    using MWKF.Api.Entities.Identity;
-    using MWKF.Api.Repositories.Interfaces;
-    using MWKF.Api.Services.Interfaces;
-    using NLog;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Cors;
+using System.Web.Http.Description;
+using AUSKF.Api.Collections;
+using AUSKF.Api.Entities;
+using AUSKF.Api.Entities.Identity;
+using AUSKF.Api.Repositories.Interfaces;
+using AUSKF.Api.Services.Interfaces;
+using NLog;
 
+namespace AUSKF.Api.Controllers
+{
     [RoutePrefix("api/v1/dojos")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class DojoController : ApiController

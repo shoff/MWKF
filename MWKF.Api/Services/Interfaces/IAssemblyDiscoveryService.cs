@@ -1,8 +1,8 @@
-﻿namespace MWKF.Api.Services.Interfaces
-{
-    using System.Collections.Generic;
-    using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 
+namespace AUSKF.Api.Services.Interfaces
+{
     public interface IAssemblyDiscoveryService
     {
         /// <summary>

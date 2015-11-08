@@ -1,8 +1,8 @@
-﻿namespace MWKF.Api.Services.Interfaces
-{
-    using System.Collections.Specialized;
-    using System.Configuration;
+﻿using System.Collections.Specialized;
+using System.Configuration;
 
+namespace AUSKF.Api.Services.Interfaces
+{
     public interface IConfigurationService  
     {
         /// <summary>

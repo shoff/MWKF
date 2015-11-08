@@ -1,8 +1,8 @@
-﻿namespace MWKF.Api.Services
-{
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
+namespace AUSKF.Api.Services
+{
     public sealed class SmsService : IIdentityMessageService
     {
         /// <summary>

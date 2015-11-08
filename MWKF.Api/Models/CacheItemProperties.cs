@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Models
-{
-    using System;
-    using System.Web.Caching;
-    using MWKF.Api.Services.Interfaces;
+﻿using System;
+using System.Web.Caching;
+using AUSKF.Api.Services.Interfaces;
 
+namespace AUSKF.Api.Models
+{
     public sealed class CacheItemProperties : ICacheItemProperties
     {
         /// <summary>

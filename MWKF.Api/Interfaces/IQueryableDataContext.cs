@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Interfaces
-{
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Threading.Tasks;
 
+namespace AUSKF.Api.Interfaces
+{
     public interface IQueryableDataContext
     {
         /// <summary>

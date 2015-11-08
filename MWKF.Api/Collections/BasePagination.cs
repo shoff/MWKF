@@ -1,7 +1,7 @@
-﻿namespace MWKF.Api.Collections
-{
-    using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
+namespace AUSKF.Api.Collections
+{
     /// <summary></summary>
     [DataContract(Namespace = "")]
     public abstract class BasePagination

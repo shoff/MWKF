@@ -1,19 +1,19 @@
-﻿namespace MWKF.Api.Providers.Identity
-{
-    using System;
-    using System.Data.Entity.Utilities;
-    using System.Globalization;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin;
-    using MWKF.Api.Entities.Identity;
-    using MWKF.Api.Extensions;
-    using MWKF.Api.Providers.Interfaces;
-    using MWKF.Api.Services;
-    using NLog;
+﻿using System;
+using System.Data.Entity.Utilities;
+using System.Globalization;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AUSKF.Api.Entities.Identity;
+using AUSKF.Api.Extensions;
+using AUSKF.Api.Providers.Interfaces;
+using AUSKF.Api.Services;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using NLog;
 
+namespace AUSKF.Api.Providers.Identity
+{
     public sealed class ApplicationUserManager : UserManager<User, Guid>, IApplicationUserManager
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();

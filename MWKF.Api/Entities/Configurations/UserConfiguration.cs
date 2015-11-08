@@ -1,25 +1,25 @@
-﻿namespace MWKF.Api.Entities.Configurations
-{
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Infrastructure.Annotations;
-    using System.Data.Entity.ModelConfiguration;
-    using MWKF.Api.Entities.Identity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
+using System.Data.Entity.ModelConfiguration;
+using AUSKF.Api.Entities.Identity;
 
+namespace AUSKF.Api.Entities.Configurations
+{
     public class UserConfiguration : EntityTypeConfiguration<User>
     {
         public UserConfiguration()
         {
-            HasMany(r => r.Roles);
-            HasMany(u => u.Claims).WithRequired().HasForeignKey(uc => uc.UserId);
-            HasMany(u => u.Logins).WithRequired().HasForeignKey(ul => ul.UserId);
+            this.HasMany(r => r.Roles);
+            this.HasMany(u => u.Claims).WithRequired().HasForeignKey(uc => uc.UserId);
+            this.HasMany(u => u.Logins).WithRequired().HasForeignKey(ul => ul.UserId);
 
-            Property(u => u.UserName).IsRequired().HasMaxLength(256).HasColumnAnnotation("Index",
+            this.Property(u => u.UserName).IsRequired().HasMaxLength(256).HasColumnAnnotation("Index",
                new IndexAnnotation(new IndexAttribute("UserNameIndex")
                {
                    IsUnique = true
                }));
-            Property(u => u.Email).HasMaxLength(256);
-            ToTable("Users");
+            this.Property(u => u.Email).HasMaxLength(256);
+            this.ToTable("Users");
 
         }
     }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWKF.Api", "MWKF.Api\MWKF.Api.csproj", "{E5570AD6-1AE4-40C8-AEA9-3A9757F59E57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUSKF.Api", "MWKF.Api\AUSKF.Api.csproj", "{E5570AD6-1AE4-40C8-AEA9-3A9757F59E57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

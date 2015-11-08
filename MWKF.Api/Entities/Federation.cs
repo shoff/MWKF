@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Entities
-{ 
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace AUSKF.Api.Entities
+{
     /// <summary>
     /// AUSKF member federation information
     /// </summary>

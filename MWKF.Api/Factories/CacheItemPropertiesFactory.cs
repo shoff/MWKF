@@ -1,11 +1,11 @@
-﻿namespace MWKF.Api.Factories
-{
-    using System;
-    using System.Web.Caching;
-    using MWKF.Api.Factories.Interfaces;
-    using MWKF.Api.Models;
-    using MWKF.Api.Services.Interfaces;
+﻿using System;
+using System.Web.Caching;
+using AUSKF.Api.Factories.Interfaces;
+using AUSKF.Api.Models;
+using AUSKF.Api.Services.Interfaces;
 
+namespace AUSKF.Api.Factories
+{
     public sealed class CacheItemPropertiesFactory : ICacheItemPropertiesFactory
     {
         private readonly int slidingExpiration;

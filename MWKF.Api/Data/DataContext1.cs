@@ -1,18 +1,18 @@
-﻿namespace MWKF.Api.Data
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.ModelConfiguration.Conventions;
-    using System.Data.Entity.Validation;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using MWKF.Api.Entities.Configurations;
-    using MWKF.Api.Exceptions;
-    using MWKF.Api.Interfaces;
-    using NLog;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Threading.Tasks;
+using AUSKF.Api.Entities.Configurations;
+using AUSKF.Api.Exceptions;
+using AUSKF.Api.Interfaces;
+using NLog;
 
+namespace AUSKF.Api.Data
+{
     public sealed partial class DataContext : DbContext, IDataContext, ITransientLifestyle
     {
         private static readonly Logger logger = LogManager.GetLogger("DataContext");

@@ -1,12 +1,12 @@
-﻿namespace MWKF.Api.Entities.Identity
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 
+namespace AUSKF.Api.Entities.Identity
+{
     public class UserRole : IdentityUserRole<Guid>
     {
         public UserRole()

@@ -1,14 +1,14 @@
-﻿namespace MWKF.Api.Providers.Interfaces
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity;
-    using MWKF.Api.Data;
-    using MWKF.Api.Entities.Identity;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AUSKF.Api.Data;
+using AUSKF.Api.Entities.Identity;
+using Microsoft.AspNet.Identity;
 
+namespace AUSKF.Api.Providers.Interfaces
+{
     // ReSharper disable once TypeParameterCanBeVariant
     /// <summary>
     ///  </summary>

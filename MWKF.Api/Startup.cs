@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using AUSKF.Api;
 using Microsoft.Owin;
+using NLog;
 using Owin;
 
-[assembly: OwinStartup(typeof(MWKF.Api.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace MWKF.Api
+namespace AUSKF.Api
 {
-    using NLog;
-
     public partial class Startup
     {
         private static readonly Logger log = LogManager.GetCurrentClassLogger();
@@ -21,7 +19,7 @@ namespace MWKF.Api
         {
             try
             {
-                ConfigureAuth(app);
+                this.ConfigureAuth(app);
             }
             catch (OverflowException ofe)
             {

@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Services
-{
-    using System.Collections.Specialized;
-    using System.Configuration;
-    using MWKF.Api.Services.Interfaces;
+﻿using System.Collections.Specialized;
+using System.Configuration;
+using AUSKF.Api.Services.Interfaces;
 
+namespace AUSKF.Api.Services
+{
     /// <summary>
     /// Allows testing of classes that make use of AppSettings and ConnectionStrings 
     /// Sections of app.config and web.config files.

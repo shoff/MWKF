@@ -1,11 +1,11 @@
-﻿namespace MWKF.Api.Extensions
-{
-    using System;
-    using System.IO;
-    using System.Security.Cryptography;
-    using System.Text;
-    using MWKF.Api.Exceptions;
+﻿using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+using AUSKF.Api.Exceptions;
 
+namespace AUSKF.Api.Extensions
+{
     public static class StringExtensions
     {
 

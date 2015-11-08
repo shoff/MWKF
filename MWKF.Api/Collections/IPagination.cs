@@ -1,8 +1,8 @@
-namespace MWKF.Api.Collections
-{
-    using System.Collections;
-    using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 
+namespace AUSKF.Api.Collections
+{
     /// <summary>
     /// Generic form of <see cref="IPagination"/>
     /// </summary>
