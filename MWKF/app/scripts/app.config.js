@@ -70,6 +70,14 @@ angular
         url: '/contact',
         templateUrl: '/views/contact.html'
       })
+      .state('iado', {
+        url: '/iado',
+        templateUrl: '/views/iado.html'
+      })
+      .state('iadoStudy', {
+        url: '/iado/study',
+        templateUrl: '/views/iado-study.html'
+      })
       .state('login', {
         url: '/login',
         templateUrl: '/views/login.html',

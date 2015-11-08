@@ -54,6 +54,7 @@
             Ioc.Instance.AddComponentWithLifestyle("ILogRepository", typeof(IEntityRepository<Log, Guid>), typeof(EntityRepository<Log, Guid>), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("IKendoRankRepository", typeof(IEntityRepository<KendoRank, Guid>), typeof(EntityRepository<KendoRank, Guid>), LifestyleType.PerWebRequest);
             Ioc.Instance.AddComponentWithLifestyle("IDojoRepository", typeof(IEntityRepository<Dojo, Guid>), typeof(EntityRepository<Dojo, Guid>), LifestyleType.PerWebRequest);
+            Ioc.Instance.AddComponentWithLifestyle("IFederationRepositor", typeof(IEntityRepository<Federation, Guid>), typeof(EntityRepository<Federation, Guid>), LifestyleType.PerWebRequest);
 
         }
     }

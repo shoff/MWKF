@@ -1,6 +1,6 @@
 <p>This is the dojos view.</p>
 
-<div class="row">
+<div class="row" ng-repeat="dojo in dojolist">
   <div>
     <div class="well well-sm">
       <div class="row">
@@ -8,12 +8,8 @@
           <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive"/>
         </div>
         <div class="col-sm-6 col-md-8">
-          <h4>Battle Creek Kendo Kai</h4>
-          <small>
-
-            <cite title="San Francisco, USA">San Francisco, USA
-              <i class="glyphicon glyphicon-map-marker"></i>
-            </cite></small>
+          <h4 ng-bind="dojo.name"></h4>
+          <div ng-bind="dojo.city"></div>
           <p>
             <i class="glyphicon glyphicon-envelope"></i>email@example.com
             <br/>
