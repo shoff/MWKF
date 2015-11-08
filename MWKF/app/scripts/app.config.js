@@ -85,7 +85,9 @@ angular
       });
 
     $translateProvider.translations('en', {
-      FOOTER_TEXT: ' HD and C for you!!',
+      FOOTER_TEXT: ' Site Disclaimer: This website is posted as a service to the All United States Kendo Federation. ' +
+                   'Information on this website is posted from many different sources and every effort is made to post accurate information. ' +
+                    'Errors may occur and users use this site without warranties of any sort implied and at their own risk.',
       SIGN_IN_OR: 'Please Log In, or',
       SIGN_UP: ' Sign up',
       USERNAME_OR: 'Username or email',
