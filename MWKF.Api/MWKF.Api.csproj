@@ -261,11 +261,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511040102245_Kendo.cs" />
+    <Content Include="Migrations\201511040102245_Kendo.cs" />
     <Compile Include="Migrations\201511040102245_Kendo.Designer.cs">
       <DependentUpon>201511040102245_Kendo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Content Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AccountBindingModels.cs" />
     <Compile Include="Models\Account\AccountViewModels.cs" />
     <Compile Include="Models\Account\IdentityModels.cs" />
