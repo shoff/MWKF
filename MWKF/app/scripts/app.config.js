@@ -96,7 +96,8 @@ angular
       CONFIRM_PASSWORD: 'Confirm Password',
       REMEMBER_ME: 'Remember me',
       LOGIN: 'LogIn',
-      PASSWORDS_NON_MATCH: 'passwords do not match'
+      PASSWORDS_NON_MATCH: 'passwords do not match',
+      KENDO_FEDERATION: 'All United States Kendo Federation'
     });
 
 
