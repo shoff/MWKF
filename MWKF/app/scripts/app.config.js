@@ -49,9 +49,8 @@ angular
     //$httpProvider.defaults.transformRequest = [function(data) {
     //  return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
     //}];
-
-
     $urlRouterProvider.otherwise('/');
+
     $stateProvider
       .state('main', {
         url: '/',
