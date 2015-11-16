@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="223e037f-ece5-4b91-989e-eb80c8517b3d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MWKF.Api/MWKF.Api.csproj" afterPath="$PROJECT_DIR$/MWKF.Api/MWKF.Api.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MWKF.Api/Web.config" afterPath="$PROJECT_DIR$/MWKF.Api/Web.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vs/config/applicationhost.config" afterPath="$PROJECT_DIR$/.vs/config/applicationhost.config" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MWKF-Git.iws" />
@@ -529,6 +526,13 @@
       <option name="number" value="Default" />
       <updated>1443822514433</updated>
     </task>
+    <task id="LOCAL-00001" summary="TLS: Latest changes">
+      <created>1447637606634</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1447637606634</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -542,10 +546,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25714287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -592,6 +597,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="TLS: Latest changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="TLS: Latest changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
