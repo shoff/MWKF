@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Collections
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Text.RegularExpressions;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
+namespace AUSKF.Api.Collections
+{
     public sealed class IgnoredAssemblies : IEnumerable<Regex>
     {
         private static readonly IgnoredAssemblies ignored = new IgnoredAssemblies();

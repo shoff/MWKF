@@ -1,20 +1,18 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using AUSKF.Api.Exceptions;
+using AUSKF.Api.Extensions;
+using AUSKF.Api.Interfaces;
+using AUSKF.Api.Repositories.Interfaces;
 
-namespace MWKF.Api.Repositories
+namespace AUSKF.Api.Repositories
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Validation;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Threading.Tasks;
-    using MWKF.Api.Exceptions;
-    using MWKF.Api.Extensions;
-    using MWKF.Api.Interfaces;
-    using MWKF.Api.Repositories.Interfaces;
-
     /// <summary>
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>

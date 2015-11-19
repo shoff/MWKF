@@ -1,13 +1,13 @@
-﻿namespace MWKF.Api.Data
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using MWKF.Api.Entities;
-    using MWKF.Api.Entities.Identity;
-    using MWKF.Api.Extensions;
-    using MWKF.Api.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using AUSKF.Api.Entities;
+using AUSKF.Api.Entities.Identity;
+using AUSKF.Api.Extensions;
+using AUSKF.Api.Interfaces;
 
+namespace AUSKF.Api.Data
+{
     public sealed class EntityContextInitializer : DropCreateDatabaseIfModelChanges<DataContext>, ISingletonLifestyle
     {
         private List<KendoRank> kendoRanks;
@@ -16,15 +16,15 @@
         
         protected override void Seed(DataContext context)
         {
-            AddKendoRanks(context);
-            AddRoles(context);
-            AddAdminUser(context);
-            AddDojos(context);
+            this.AddKendoRanks(context);
+            this.AddRoles(context);
+            this.AddAdminUser(context);
+            this.AddDojos(context);
         }
 
         private void AddKendoRanks(DataContext context)
         {
-            kendoRanks = new List<KendoRank>
+            this.kendoRanks = new List<KendoRank>
             {
                 new KendoRank {  KendoRankName="Nikyu", KendoRankNumeric = 10,
                     Eligibility ="The examination for kyu shall be determined by each organization.",
@@ -67,7 +67,7 @@
                     ConsentingExaminersRequired = 7, MinimumRankOfExaminers = "Hachi-Dan", NumberOfExaminers=7  },
             };
 
-            kendoRanks.ForEach(kr => context.KendoRanks.Add(kr));
+            this.kendoRanks.ForEach(kr => context.KendoRanks.Add(kr));
             context.Commit();
         }
 

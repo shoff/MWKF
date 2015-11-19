@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Factories
-{
-    using System.Collections.Generic;
-    using System.Globalization;
-    using MWKF.Api.Collections;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using AUSKF.Api.Collections;
 
+namespace AUSKF.Api.Factories
+{
     public sealed class PageArrayBuilder<T>
     {
         private int boundSize;

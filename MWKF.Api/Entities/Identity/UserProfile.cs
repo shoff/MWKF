@@ -1,8 +1,8 @@
-﻿namespace MWKF.Api.Entities.Identity
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
+namespace AUSKF.Api.Entities.Identity
+{
     /// <summary>
     /// </summary>
     public class UserProfile

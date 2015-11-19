@@ -1,12 +1,12 @@
-﻿namespace MWKF.Api.Providers.Identity
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using System.Web;
-    using Microsoft.Owin.Security;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Web;
+using Microsoft.Owin.Security;
 
+namespace AUSKF.Api.Providers.Identity
+{
     public class ApplicationAuthenticationManager :  IAuthenticationManager
     {
         private readonly IAuthenticationManager authenticationManager;

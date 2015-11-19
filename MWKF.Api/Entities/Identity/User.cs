@@ -1,15 +1,15 @@
-﻿namespace MWKF.Api.Entities.Identity
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using MWKF.Api.Providers.Interfaces;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using AUSKF.Api.Providers.Interfaces;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
+namespace AUSKF.Api.Entities.Identity
+{
     /// <summary>
     /// </summary>
     [Table("Users")]

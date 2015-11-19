@@ -1,16 +1,16 @@
-﻿namespace MWKF.Api.Providers
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity;
-    using MWKF.Api.Data;
-    using MWKF.Api.Entities.Identity;
-    using MWKF.Api.Providers.Interfaces;
-    using MWKF.Api.Repositories.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AUSKF.Api.Data;
+using AUSKF.Api.Entities.Identity;
+using AUSKF.Api.Providers.Interfaces;
+using AUSKF.Api.Repositories.Interfaces;
+using Microsoft.AspNet.Identity;
 
+namespace AUSKF.Api.Providers
+{
     /// <summary>
     /// </summary>
     /// <typeparam name="TUser">The type of the user.</typeparam>

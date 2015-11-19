@@ -1,10 +1,10 @@
-﻿namespace MWKF.Api.Exceptions
-{
-    using System;
-    using System.Diagnostics;
-    using System.Reflection;
-    using System.Text;
+﻿using System;
+using System.Diagnostics;
+using System.Reflection;
+using System.Text;
 
+namespace AUSKF.Api.Exceptions
+{
     /// <summary>
     /// </summary>
     public sealed class ParameterNullException : ArgumentNullException

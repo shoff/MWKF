@@ -1,10 +1,10 @@
-﻿namespace MWKF.Api.Entities.Identity
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using Microsoft.AspNet.Identity.EntityFramework;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNet.Identity.EntityFramework;
 
+namespace AUSKF.Api.Entities.Identity
+{
     public class UserClaim : IdentityUserClaim<Guid>
     {
 

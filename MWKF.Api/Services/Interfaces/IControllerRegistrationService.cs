@@ -1,4 +1,4 @@
-﻿namespace MWKF.Api.Services.Interfaces
+﻿namespace AUSKF.Api.Services.Interfaces
 {
     public interface IControllerRegistrationService
     {

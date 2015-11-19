@@ -1,12 +1,12 @@
-﻿namespace MWKF.Api.Providers.Identity
-{
-    using System;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity;
-    using MWKF.Api.Entities.Identity;
-    using NLog;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AUSKF.Api.Entities.Identity;
+using Microsoft.AspNet.Identity;
+using NLog;
 
+namespace AUSKF.Api.Providers.Identity
+{
     public class ApplicationClaimsIdentityFactory : ClaimsIdentityFactory<User, Guid>
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger(typeof(ApplicationClaimsIdentityFactory));

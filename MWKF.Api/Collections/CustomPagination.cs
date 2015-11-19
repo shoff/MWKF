@@ -1,15 +1,15 @@
-﻿namespace MWKF.Api.Collections
-{
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.Remoting.Messaging;
-    using System.Runtime.Serialization;
-    using MWKF.Api.Exceptions;
-    using MWKF.Api.Factories;
-    using Newtonsoft.Json;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Runtime.Serialization;
+using AUSKF.Api.Exceptions;
+using AUSKF.Api.Factories;
+using Newtonsoft.Json;
 
+namespace AUSKF.Api.Collections
+{
     /// <summary>
     /// 
     /// </summary>
@@ -99,7 +99,7 @@
         /// <param name="totalItems">The total items.</param>
         /// <param name="useDataSourceAsCurrentPage">if set to <c>true</c> [use data source as current page].</param>
         /// <exception cref="TypeInitializationException">new ParameterNullException(dataSource)</exception>
-        /// <exception cref="MWKF.Api.Exceptions.ParameterNullException">dataSource</exception>
+        /// <exception cref="ParameterNullException">dataSource</exception>
         public CustomPagination(ICollection<T> dataSource, int pageNumber,
             int pageSize, int totalItems, bool useDataSourceAsCurrentPage)
         {

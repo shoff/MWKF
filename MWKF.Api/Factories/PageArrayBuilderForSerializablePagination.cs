@@ -1,8 +1,8 @@
-﻿namespace MWKF.Api.Factories
-{
-    using System.Collections.Generic;
-    using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 
+namespace AUSKF.Api.Factories
+{
     public sealed class PageArrayBuilderForSerializablePagination<T>
     {
         private int boundSize;

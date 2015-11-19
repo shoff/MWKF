@@ -1,7 +1,7 @@
-﻿namespace MWKF.Api.Models.Account
-{
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace AUSKF.Api.Models.Account
+{
     // Models returned by AccountController actions.
 
     public class ExternalLoginViewModel

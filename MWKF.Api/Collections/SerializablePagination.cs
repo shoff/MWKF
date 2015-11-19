@@ -1,13 +1,13 @@
-﻿namespace MWKF.Api.Collections
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.Serialization;
-    using MWKF.Api.Exceptions;
-    using MWKF.Api.Factories;
-    using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using AUSKF.Api.Exceptions;
+using AUSKF.Api.Factories;
+using Newtonsoft.Json;
 
+namespace AUSKF.Api.Collections
+{
     /// <summary></summary>
     /// <typeparam name="T"></typeparam>
     [DataContract(Namespace = "")]

@@ -1,10 +1,10 @@
-﻿namespace MWKF.Api.Services
-{
-    using System.Web.Http.Controllers;
-    using System.Web.Mvc;
-    using Castle.MicroKernel.Registration;
-    using MWKF.Api.Services.Interfaces;
+﻿using System.Web.Http.Controllers;
+using System.Web.Mvc;
+using AUSKF.Api.Services.Interfaces;
+using Castle.MicroKernel.Registration;
 
+namespace AUSKF.Api.Services
+{
     public sealed class ControllerRegistrationService : IControllerRegistrationService
     {
         private readonly IAssemblyDiscoveryService assemblyDiscoveryService;

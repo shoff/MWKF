@@ -1,4 +1,4 @@
-﻿namespace MWKF.Api
+﻿namespace AUSKF.Api
 {
     public static class Constants
     {

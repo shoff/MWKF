@@ -1,22 +1,19 @@
-﻿namespace MWKF.Api
-{
-    using System;
-    using System.Globalization;
-    using System.Security.Claims;
-    using System.Security.Principal;
-    using System.Web.Http;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin;
-    using Microsoft.Owin.Security;
-    using Microsoft.Owin.Security.Cookies;
-    using Microsoft.Owin.Security.OAuth;
-    using MWKF.Api.Data;
-    using MWKF.Api.Entities.Identity;
-    using MWKF.Api.Providers.Identity;
-    using MWKF.Api.Services;
-    using Owin;
+﻿using System;
+using System.Globalization;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.Web.Http;
+using AUSKF.Api.Data;
+using AUSKF.Api.Entities.Identity;
+using AUSKF.Api.Providers.Identity;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
 
+namespace AUSKF.Api
+{
     public static class IdentityExtensions
     {
         public static T GetUserId<T>(this IIdentity identity) 

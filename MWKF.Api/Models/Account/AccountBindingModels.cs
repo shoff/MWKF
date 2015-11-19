@@ -1,7 +1,7 @@
-﻿namespace MWKF.Api.Models.Account
-{
-    using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
+namespace AUSKF.Api.Models.Account
+{
     // Models used as parameters to AccountController actions.
 
     public class AddExternalLoginBindingModel

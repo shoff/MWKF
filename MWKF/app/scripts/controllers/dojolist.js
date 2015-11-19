@@ -5,7 +5,7 @@ angular.module('mwkfApp')
 
     $http.get(API_URL + 'dojos').then(
       function (success) {
-        $scope.jobs = success.data;
+        $scope.dojolist = success.data;
       }, function (error) {
         //alert('danger', 'Sorry   ',  error.data.message, 2000);
       });

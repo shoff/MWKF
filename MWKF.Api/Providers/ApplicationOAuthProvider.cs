@@ -1,16 +1,16 @@
-﻿namespace MWKF.Api.Providers
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin.Security;
-    using Microsoft.Owin.Security.Cookies;
-    using Microsoft.Owin.Security.OAuth;
-    using MWKF.Api.Entities.Identity;
-    using MWKF.Api.Providers.Identity;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AUSKF.Api.Entities.Identity;
+using AUSKF.Api.Providers.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OAuth;
 
+namespace AUSKF.Api.Providers
+{
     public sealed class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
 

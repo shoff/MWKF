@@ -1,15 +1,15 @@
-﻿namespace MWKF.Api.Services
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Reflection;
-    using MWKF.Api.Collections;
-    using MWKF.Api.Exceptions;
-    using MWKF.Api.Extensions;
-    using MWKF.Api.Services.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using AUSKF.Api.Collections;
+using AUSKF.Api.Exceptions;
+using AUSKF.Api.Extensions;
+using AUSKF.Api.Services.Interfaces;
 
+namespace AUSKF.Api.Services
+{
     /// <summary>
     /// Gets a collection of Assemblies in the specified bin directory that 
     /// are not on the ignored assemblies list.

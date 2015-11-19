@@ -1,27 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
-using System.Web.Http.ModelBinding;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.OAuth;
-using MWKF.Api.Models;
-using MWKF.Api.Providers;
-using MWKF.Api.Results;
+﻿using System.Web.Http;
 
-namespace MWKF.Api.Controllers
+namespace AUSKF.Api.Controllers
 {
-    using MWKF.Api.Models.Account;
-    using MWKF.Api.Providers.Interfaces;
-
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController

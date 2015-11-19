@@ -1,17 +1,17 @@
-﻿namespace MWKF.Api.Providers.Identity
-{
-    using System;
-    using System.Data.Entity.Utilities;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin;
-    using Microsoft.Owin.Security;
-    using MWKF.Api.Entities.Identity;
-    using MWKF.Api.Providers.Interfaces;
-    using MWKF.Api.Repositories.Interfaces;
-    using MWKF.Api.Services;
+﻿using System;
+using System.Data.Entity.Utilities;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using AUSKF.Api.Entities.Identity;
+using AUSKF.Api.Providers.Interfaces;
+using AUSKF.Api.Repositories.Interfaces;
+using AUSKF.Api.Services;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
 
+namespace AUSKF.Api.Providers.Identity
+{
     /// <summary>
     /// </summary>
     public sealed class ApplicationSignInManager : SignInManager<User, Guid>, IApplicationSignInManager

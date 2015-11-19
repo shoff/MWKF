@@ -1,9 +1,9 @@
-﻿namespace MWKF.Api.Data
-{
-    using System.Data.Entity;
-    using MWKF.Api.Entities;
-    using Entities.Identity;
+﻿using System.Data.Entity;
+using AUSKF.Api.Entities;
+using AUSKF.Api.Entities.Identity;
 
+namespace AUSKF.Api.Data
+{
     public sealed partial class DataContext
     {
         private IDbSet<Log> logs;
