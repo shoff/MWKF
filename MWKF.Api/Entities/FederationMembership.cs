@@ -8,7 +8,7 @@ namespace AUSKF.Api.Entities
     /// <summary>
     /// Individual's membership to a federation information
     /// </summary>
-    public class FederationMembership
+    public class FederationMembership : EntityBase
     {
         /// <summary>
         /// Federation membership identifier

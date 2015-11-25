@@ -1,9 +1,9 @@
-namespace MWKF.Api.Migrations
+namespace AUSKF.Api.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Kendo : DbMigration
+    public partial class WORKDAMNIT : DbMigration
     {
         public override void Up()
         {
@@ -17,6 +17,10 @@ namespace MWKF.Api.Migrations
                         City = c.String(maxLength: 256),
                         State = c.String(maxLength: 60),
                         ZipCode = c.String(maxLength: 10),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.AddressId);
             
@@ -29,6 +33,10 @@ namespace MWKF.Api.Migrations
                         DojoId = c.Guid(nullable: false),
                         EffectiveStart = c.DateTime(nullable: false),
                         EffectiveEnd = c.DateTime(nullable: false),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.DojoMembershipId)
                 .ForeignKey("dbo.Dojos", t => t.DojoId)
@@ -41,25 +49,58 @@ namespace MWKF.Api.Migrations
                 c => new
                     {
                         DojoId = c.Guid(nullable: false, identity: true),
-                        DojoName = c.String(nullable: false),
+                        FederationId = c.Guid(nullable: false),
                         AddressId = c.Guid(nullable: false),
-                        Contact = c.String(),
+                        PrimaryContactId = c.Guid(nullable: false),
+                        DojoName = c.String(nullable: false),
                         Phone = c.String(maxLength: 13),
                         WebsiteUrl = c.String(maxLength: 512),
                         EmailAddress = c.String(maxLength: 512),
                         Notes = c.String(maxLength: 1024),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.DojoId)
                 .ForeignKey("dbo.Addresses", t => t.AddressId)
-                .Index(t => t.AddressId);
+                .ForeignKey("dbo.Federations", t => t.FederationId)
+                .ForeignKey("dbo.Users", t => t.PrimaryContactId)
+                .Index(t => t.FederationId)
+                .Index(t => t.AddressId)
+                .Index(t => t.PrimaryContactId);
+            
+            CreateTable(
+                "dbo.Federations",
+                c => new
+                    {
+                        FederationId = c.Guid(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        Email = c.String(maxLength: 512),
+                        Phone = c.String(maxLength: 13),
+                        WebsiteUrl = c.String(maxLength: 512),
+                        Logo = c.Binary(),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.FederationId);
             
             CreateTable(
                 "dbo.Users",
                 c => new
                     {
                         Id = c.Guid(nullable: false, identity: true),
+                        AddressId = c.Guid(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
                         DisplayName = c.String(maxLength: 20),
+                        FirstName = c.String(nullable: false, maxLength: 20),
+                        MiddleName = c.String(maxLength: 20),
+                        LastName = c.String(nullable: false, maxLength: 20),
+                        Gender = c.String(nullable: false, maxLength: 1),
+                        DateOfBirth = c.DateTime(nullable: false),
+                        AuskfIdNumber = c.Int(nullable: false),
                         Password = c.String(maxLength: 256),
                         PasswordLastChangedDate = c.DateTime(nullable: false),
                         MaximumDaysBetweenPasswordChange = c.Int(nullable: false),
@@ -86,8 +127,10 @@ namespace MWKF.Api.Migrations
                         AccessFailedCount = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Addresses", t => t.AddressId)
                 .ForeignKey("dbo.KendoRanks", t => t.KendoRankId)
                 .ForeignKey("dbo.UserProfiles", t => t.UserProfileId)
+                .Index(t => t.AddressId)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex")
                 .Index(t => t.KendoRankId)
                 .Index(t => t.UserProfileId);
@@ -116,6 +159,10 @@ namespace MWKF.Api.Migrations
                         MinimumRankOfExaminers = c.String(nullable: false, maxLength: 30),
                         NumberOfExaminers = c.Int(nullable: false),
                         ConsentingExaminersRequired = c.Int(nullable: false),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.KendoRankId);
             
@@ -167,24 +214,16 @@ namespace MWKF.Api.Migrations
                         UserId = c.Guid(nullable: false),
                         FederationId = c.Guid(nullable: false),
                         MembershipYear = c.Int(nullable: false),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.FederationMembershipId)
                 .ForeignKey("dbo.Federations", t => t.FederationId)
                 .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.FederationId);
-            
-            CreateTable(
-                "dbo.Federations",
-                c => new
-                    {
-                        FederationId = c.Guid(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        Email = c.String(nullable: false, maxLength: 512),
-                        Phone = c.String(maxLength: 13),
-                        WebsiteUrl = c.String(maxLength: 512),
-                    })
-                .PrimaryKey(t => t.FederationId);
             
             CreateTable(
                 "dbo.FederationOfficers",
@@ -196,6 +235,10 @@ namespace MWKF.Api.Migrations
                         Email = c.String(nullable: false, maxLength: 512),
                         EffectiveStart = c.DateTime(nullable: false),
                         EffectiveEnd = c.DateTime(nullable: false),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.FederationOfficerId)
                 .ForeignKey("dbo.OfficerRoles", t => t.OfficerRoleId)
@@ -209,6 +252,10 @@ namespace MWKF.Api.Migrations
                     {
                         OfficerRoleId = c.Guid(nullable: false, identity: true),
                         Name = c.String(nullable: false),
+                        CreateUser = c.String(maxLength: 20),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyUser = c.String(maxLength: 20),
+                        ModifyDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.OfficerRoleId);
             
@@ -252,13 +299,16 @@ namespace MWKF.Api.Migrations
             DropForeignKey("dbo.FederationMemberships", "UserId", "dbo.Users");
             DropForeignKey("dbo.FederationMemberships", "FederationId", "dbo.Federations");
             DropForeignKey("dbo.DojoMemberships", "UserId", "dbo.Users");
+            DropForeignKey("dbo.DojoMemberships", "DojoId", "dbo.Dojos");
+            DropForeignKey("dbo.Dojos", "PrimaryContactId", "dbo.Users");
             DropForeignKey("dbo.UserUserRoles", "UserRole_RoleId", "dbo.UserRoles");
             DropForeignKey("dbo.UserUserRoles", "User_Id", "dbo.Users");
             DropForeignKey("dbo.Users", "UserProfileId", "dbo.UserProfiles");
             DropForeignKey("dbo.UserLogins", "UserId", "dbo.Users");
             DropForeignKey("dbo.Users", "KendoRankId", "dbo.KendoRanks");
             DropForeignKey("dbo.UserClaims", "UserId", "dbo.Users");
-            DropForeignKey("dbo.DojoMemberships", "DojoId", "dbo.Dojos");
+            DropForeignKey("dbo.Users", "AddressId", "dbo.Addresses");
+            DropForeignKey("dbo.Dojos", "FederationId", "dbo.Federations");
             DropForeignKey("dbo.Dojos", "AddressId", "dbo.Addresses");
             DropIndex("dbo.UserUserRoles", new[] { "UserRole_RoleId" });
             DropIndex("dbo.UserUserRoles", new[] { "User_Id" });
@@ -271,14 +321,16 @@ namespace MWKF.Api.Migrations
             DropIndex("dbo.Users", new[] { "UserProfileId" });
             DropIndex("dbo.Users", new[] { "KendoRankId" });
             DropIndex("dbo.Users", "UserNameIndex");
+            DropIndex("dbo.Users", new[] { "AddressId" });
+            DropIndex("dbo.Dojos", new[] { "PrimaryContactId" });
             DropIndex("dbo.Dojos", new[] { "AddressId" });
+            DropIndex("dbo.Dojos", new[] { "FederationId" });
             DropIndex("dbo.DojoMemberships", new[] { "DojoId" });
             DropIndex("dbo.DojoMemberships", new[] { "UserId" });
             DropTable("dbo.UserUserRoles");
             DropTable("dbo.LogTable");
             DropTable("dbo.OfficerRoles");
             DropTable("dbo.FederationOfficers");
-            DropTable("dbo.Federations");
             DropTable("dbo.FederationMemberships");
             DropTable("dbo.UserRoles");
             DropTable("dbo.UserProfiles");
@@ -286,6 +338,7 @@ namespace MWKF.Api.Migrations
             DropTable("dbo.KendoRanks");
             DropTable("dbo.UserClaims");
             DropTable("dbo.Users");
+            DropTable("dbo.Federations");
             DropTable("dbo.Dojos");
             DropTable("dbo.DojoMemberships");
             DropTable("dbo.Addresses");

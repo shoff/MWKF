@@ -7,7 +7,7 @@ namespace AUSKF.Api.Entities
     /// <summary>
     /// Defines the roles of various officers within federations (President, Secretary, Treasurer, etc for example)
     /// </summary>
-    public class OfficerRole
+    public class OfficerRole : EntityBase
     {
         /// <summary>
         /// Officer role identifier

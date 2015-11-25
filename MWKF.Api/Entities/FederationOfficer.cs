@@ -8,7 +8,7 @@ namespace AUSKF.Api.Entities
     /// <summary>
     /// Users holding an office of a federation
     /// </summary>
-    public class FederationOfficer
+    public class FederationOfficer : EntityBase
     {
         /// <summary>
         /// Federation officer holder identifier
@@ -16,7 +16,7 @@ namespace AUSKF.Api.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid FederationOfficerId { get; set; }
-
+         
         /// <summary>
         /// User id for the person who's holding the officer role for this federation
         /// </summary>

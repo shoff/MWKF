@@ -5,7 +5,7 @@ using AUSKF.Api.Entities.Identity;
 
 namespace AUSKF.Api.Entities
 {
-    public class Event
+    public class Event : EntityBase
     {
         [Key]
         public Guid EventId { get; set; }

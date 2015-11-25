@@ -12,6 +12,7 @@ using AUSKF.Api.Entities.Identity;
 using AUSKF.Api.Repositories.Interfaces;
 using AUSKF.Api.Services.Interfaces;
 using NLog;
+using AUSKF.Api.Data;
 
 namespace AUSKF.Api.Controllers
 {
@@ -35,7 +36,7 @@ namespace AUSKF.Api.Controllers
         public async Task<IHttpActionResult> Get(int? pagenumber)
         {
             try
-            {
+            {  
                 var dojos = this.cacheService.TryGet<Expression<Func<Dojo, bool>>,
                      Func<IQueryable<Dojo>, IOrderedQueryable<Dojo>>, string,
                      IEnumerable<Dojo>>("Dojos", (x => x != null), null, "Address", this.dojoRepository.Get, null);

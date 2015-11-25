@@ -1,25 +1,34 @@
-﻿using System;
+﻿using AUSKF.Api.Entities.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AUSKF.Api.Entities
 {
     [Table("Dojos")]
-    public class Dojo
+    public class Dojo : EntityBase 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid DojoId { get; set; }
+        
+        [ForeignKey("Federation")] 
+        public Guid FederationId { get; set; }
 
-        [Required]
-        public string DojoName { get; set; }
+        public Federation Federation { get; set; }
 
         [ForeignKey("Address")]
         public Guid AddressId { get; set; }
 
         public Address Address { get; set; }
 
-        public string Contact { get; set; }
+        [ForeignKey("PrimaryContact")]
+        public Guid PrimaryContactId { get; set; }
+
+        public User PrimaryContact { get; set; }
+
+        [Required]
+        public string DojoName { get; set; }
 
         [MaxLength(13), DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }

@@ -1,15 +1,16 @@
-﻿using System;
+﻿using AUSKF.Api.Entities.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AUSKF.Api.Entities
 {
-    public class Address
+    public class Address : EntityBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid AddressId { get; set; }
-
+          
         [MaxLength(256)]
         public string AddressLine1 { get; set; }
         
@@ -22,7 +23,7 @@ namespace AUSKF.Api.Entities
         public string State { get; set; }
 
         [MaxLength(10)]
-        public string ZipCode { get; set; }
+        public string ZipCode { get; set; } 
 
     }
 }

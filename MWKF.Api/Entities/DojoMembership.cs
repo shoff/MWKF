@@ -5,7 +5,7 @@ using AUSKF.Api.Entities.Identity;
 
 namespace AUSKF.Api.Entities
 {
-    public class DojoMembership
+    public class DojoMembership : EntityBase
     {
         /// <summary>
         /// Dojo membership identifier

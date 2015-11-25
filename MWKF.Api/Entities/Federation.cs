@@ -7,7 +7,7 @@ namespace AUSKF.Api.Entities
     /// <summary>
     /// AUSKF member federation information
     /// </summary>
-    public class Federation
+    public class Federation : EntityBase 
     {
         /// <summary>
         /// Federation identifier
@@ -18,8 +18,7 @@ namespace AUSKF.Api.Entities
 
         [Required]
         public string Name { get; set; }
-
-        [Required]
+         
         [MaxLength(512)]
         public string Email { get; set; }
 
@@ -28,5 +27,7 @@ namespace AUSKF.Api.Entities
 
         [MaxLength(512)]
         public string WebsiteUrl { get; set; }
+
+        public byte[] Logo { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AUSKF.Api.Entities
 {
-    public class KendoRank
+    public class KendoRank : EntityBase
     {
         /// <summary>
         /// Gets or sets the kendo rank identifier.

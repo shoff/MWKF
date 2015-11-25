@@ -1,31 +1,19 @@
-namespace MWKF.Api.Migrations
+namespace AUSKF.Api.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+    using Data; 
+    using System.Data.Entity.Migrations; 
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MWKF.Api.Data.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AUSKF.Api.Data.DataContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            SetSqlGenerator("System.Data.SqlClient", new CustomSqlServerMigrationSqlGenerator());
         }
 
-        protected override void Seed(MWKF.Api.Data.DataContext context)
+        protected override void Seed(AUSKF.Api.Data.DataContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-        }
+            new EntityContextInitializer().InitializeDatabase(context);
+        } 
     }
-}
+} 

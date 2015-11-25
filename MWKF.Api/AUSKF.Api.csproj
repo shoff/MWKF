@@ -228,6 +228,7 @@
     <Compile Include="Controllers\KendoRankController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRoleController.cs" />
+    <Compile Include="Data\CustomSqlServerMigrationSqlGenerator.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\DataContext1.cs" />
     <Compile Include="Data\EntityContextInitializer.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Entities\Configurations\UserConfiguration.cs" />
     <Compile Include="Entities\Dojo.cs" />
     <Compile Include="Entities\DojoMembership.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Federation.cs" />
     <Compile Include="Entities\FederationMembership.cs" />
@@ -261,11 +263,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Content Include="Migrations\201511040102245_Kendo.cs" />
-    <Compile Include="Migrations\201511040102245_Kendo.Designer.cs">
-      <DependentUpon>201511040102245_Kendo.cs</DependentUpon>
+    <Compile Include="Migrations\201511240406537_WORKDAMNIT.cs" />
+    <Compile Include="Migrations\201511240406537_WORKDAMNIT.Designer.cs">
+      <DependentUpon>201511240406537_WORKDAMNIT.cs</DependentUpon>
     </Compile>
-    <Content Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ConfigurationAccount.cs" />
     <Compile Include="Models\Account\AccountBindingModels.cs" />
     <Compile Include="Models\Account\AccountViewModels.cs" />
     <Compile Include="Models\Account\IdentityModels.cs" />
@@ -324,8 +327,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511040102245_Kendo.resx">
-      <DependentUpon>201511040102245_Kendo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511240406537_WORKDAMNIT.resx">
+      <DependentUpon>201511240406537_WORKDAMNIT.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

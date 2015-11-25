@@ -29,6 +29,17 @@ namespace AUSKF.Api.Entities.Identity
         public override Guid Id { get; set; }
 
         /// <summary>
+        /// Foreign key to users current address
+        /// </summary>
+        [ForeignKey("Address")]
+        public Guid AddressId { get; set; }
+
+        /// <summary>
+        /// Users current address
+        /// </summary>
+        public Address Address { get; set; }
+
+        /// <summary>
         /// Gets or sets the name of the user.
         /// </summary>
         /// <value>
@@ -46,6 +57,46 @@ namespace AUSKF.Api.Entities.Identity
         /// </value>
         [StringLength(20)]
         public string DisplayName { get; set; }
+
+        /// <summary>
+        /// First Name
+        /// </summary>
+        [StringLength(20)]
+        [Required]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Middle Name
+        /// </summary>
+        [StringLength(20)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
+        /// Last Name
+        /// </summary>
+        [StringLength(20)]
+        [Required]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// M for male. F for femail.
+        /// </summary>
+        [StringLength(1)]
+        [Required]
+        public string Gender { get; set; }
+
+        /// <summary>
+        /// Date of Birth
+        /// </summary>
+        [DataType(DataType.Date)]
+        [Required]
+        public DateTime DateOfBirth { get; set; }
+
+        /// <summary>
+        /// Unique ID number
+        /// </summary>
+        [Required]
+        public int AuskfIdNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
