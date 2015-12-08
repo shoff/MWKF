@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/MWKF/README.md" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MWKF/app/scripts/app.config.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MWKF/app/scripts/controllers/dojolist.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/scripts/controllers/federations.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/scripts/controllers/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/scripts/controllers/useraccount.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/scripts/directives/validateequals.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/scripts/directives/validatepasswordequals.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/scripts/services/federationservice.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/styles/dojos.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/styles/login.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MWKF/app/views/dojos.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/views/federations.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MWKF/app/views/iado-study.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MWKF/app/views/iado.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/views/login.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/app/views/user-account.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/test/spec/controllers/dojolist.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MWKF/test/spec/controllers/useraccount.js" charset="UTF-8" />
   </component>
 </project>

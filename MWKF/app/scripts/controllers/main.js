@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name mwkfApp.controller:MainCtrl
+ * @name auskfApp.controller:MainCtrl
  * @description
  * # MainCtrl
  * Controller of the mwkfApp
  */
-angular.module('mwkfApp')
+angular.module('auskfApp')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

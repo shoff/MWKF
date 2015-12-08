@@ -13,11 +13,13 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/dojos.css">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <link rel="stylesheet" href="styles/bootstrap-flatly.css">
   </head>
-  <body ng-app="mwkfApp">
+  <body ng-app="auskfApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -45,8 +47,9 @@
               <li ui-sref-active="active"><a ui-sref="main">Home</a></li>
               <li ui-sref-active="active"><a ui-sref ="about">About</a></li>
               <li ui-sref-active="active"><a ui-sref ="contact">Contact</a></li>
+              <li ui-sref-active="active"><a ui-sref="federations">Federations</a></li>
+              <li ui-sref-active="active"><a ui-sref="dojos">Dojos</a></li>
               <li ui-sref-active="active"><a ui-sref ="login">Login</a></li>
-              <li ui-sref-active="active"><a ui-sref="dojos">Dojo Listings</a> </li>
             </ul>
           </div>
         </div>
@@ -96,9 +99,12 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/dojolist.js"></script>
+        <script src="scripts/controllers/federations.js"></script>
         <script src="scripts/services/kendorankservice.js"></script>
         <script src="scripts/services/dojoservice.js"></script>
+        <script src="scripts/services/federationservice.js"></script>
         <script src="scripts/directives/validateequals.js"></script>
+        <script src="scripts/directives/validatepasswordequals.js"></script>
         <!-- endbuild -->
 </body>
 </html>

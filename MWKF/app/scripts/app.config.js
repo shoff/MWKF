@@ -4,7 +4,7 @@
 'use strict';
 
 angular
-  .module('mwkfApp')
+  .module('auskfApp')
   .config(function ($urlRouterProvider, $stateProvider, $translateProvider, $httpProvider) {
 
     //// if posting to an Asp.Net MVC action then this should be set so that it can grab the values.
@@ -60,6 +60,11 @@ angular
         url: '/dojolist',
         templateUrl: '/views/dojos.html',
         controller: 'DojolistCtrl'
+      })
+      .state('federations', {
+        url: '/federations',
+        templateUrl: '/views/federations.html',
+        controller: 'FederationCtrl'
       })
       .state('about', {
         url: '/about',

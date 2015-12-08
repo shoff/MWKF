@@ -3,7 +3,7 @@
 describe('Controller: DojolistCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('mwkfApp'));
+  beforeEach(module('auskfApp'));
 
   var DojolistCtrl,
     scope;

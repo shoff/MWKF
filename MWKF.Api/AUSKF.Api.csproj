@@ -263,9 +263,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511240406537_WORKDAMNIT.cs" />
-    <Compile Include="Migrations\201511240406537_WORKDAMNIT.Designer.cs">
-      <DependentUpon>201511240406537_WORKDAMNIT.cs</DependentUpon>
+    <Compile Include="Migrations\201512080305529_m112072015.cs" />
+    <Compile Include="Migrations\201512080305529_m112072015.Designer.cs">
+      <DependentUpon>201512080305529_m112072015.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\ConfigurationAccount.cs" />
@@ -327,8 +327,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Common.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511240406537_WORKDAMNIT.resx">
-      <DependentUpon>201511240406537_WORKDAMNIT.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512080305529_m112072015.resx">
+      <DependentUpon>201512080305529_m112072015.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

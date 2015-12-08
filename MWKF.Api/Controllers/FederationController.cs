@@ -28,10 +28,10 @@ namespace AUSKF.Api.Controllers
             this.cacheService = cacheService;    
         }
 
-       [HttpGet]
-       [Route(Name = "FederationsV1")]
-       [ResponseType(typeof(SerializablePagination<Federation>))]
-       public async Task<IHttpActionResult> Get()
+       [HttpGet] 
+       [Route("")]
+       [ResponseType(typeof(Federation[]))]
+       public async Task<IHttpActionResult> Get(string state = "")
        {
             try
             {

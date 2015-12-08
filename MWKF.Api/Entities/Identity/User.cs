@@ -32,7 +32,7 @@ namespace AUSKF.Api.Entities.Identity
         /// Foreign key to users current address
         /// </summary>
         [ForeignKey("Address")]
-        public Guid AddressId { get; set; }
+        public Guid? AddressId { get; set; }
 
         /// <summary>
         /// Users current address

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name mwkfApp.DojoService
+ * @name auskfApp.DojoService
  * @description
  * # DojoService
  * Service in the mwkfApp.
  */
-angular.module('mwkfApp')
+angular.module('auskfApp')
   .service('DojoService', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
   });

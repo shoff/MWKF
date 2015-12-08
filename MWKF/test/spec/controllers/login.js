@@ -3,7 +3,7 @@
 describe('Controller: LoginCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('mwkfApp'));
+  beforeEach(module('auskfApp'));
 
   var LoginCtrl,
     scope;

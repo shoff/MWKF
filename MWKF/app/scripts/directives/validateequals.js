@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mwkfApp')
+angular.module('auskfApp')
   .directive('validateEquals', function () {
     return {
       require: 'ngModel',
@@ -18,3 +18,7 @@ angular.module('mwkfApp')
       }
     };
   });
+
+
+
+

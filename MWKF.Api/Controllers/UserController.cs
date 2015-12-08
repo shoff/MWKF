@@ -13,6 +13,7 @@ using AUSKF.Api.Entities.Identity;
 using AUSKF.Api.Repositories.Interfaces;
 using AUSKF.Api.Services.Interfaces;
 using NLog;
+using AUSKF.Api.Entities;
 
 namespace AUSKF.Api.Controllers
 {
@@ -22,12 +23,14 @@ namespace AUSKF.Api.Controllers
     {
         private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
         private readonly IEntityRepository<User, Guid> userRepository;
+        private readonly IEntityRepository<KendoRank, Guid> kendoRankRepository;
         private readonly ICacheService cacheService;
-
-        public UserController(IEntityRepository<User, Guid> userRepository, ICacheService cacheService)
+        
+        public UserController(IEntityRepository<User, Guid> userRepository, IEntityRepository<KendoRank, Guid> kendoRankRepository, ICacheService cacheService)
         {
             this.userRepository = userRepository;
             this.cacheService = cacheService;
+            this.kendoRankRepository = kendoRankRepository;
         }
 
         [HttpGet]
@@ -100,8 +103,48 @@ namespace AUSKF.Api.Controllers
         {
             try
             {
-                await this.userRepository.InsertAsync(user);
-                return this.CreatedAtRoute("GetUserById", new { userId = user.Id }, user);
+                var existingUser = this.userRepository.Get(u => u.FirstName == user.FirstName && u.MiddleName == user.MiddleName && u.LastName == user.LastName && u.DateOfBirth == user.DateOfBirth).FirstOrDefault();
+
+                if (existingUser != null)
+                {
+                    return this.Conflict(); //TODO: Determine if what the appropriate response is if this is not it.
+                }
+                else
+                {
+                    var users = this.userRepository.Get().OrderByDescending(u => u.AuskfIdNumber).ToList();
+
+                    user.AuskfIdNumber = users.Count > 0 ? users[0].AuskfIdNumber + 1 : 1;
+                    user.PasswordLastChangedDate = DateTime.Now;
+                    user.MaximumDaysBetweenPasswordChange = 0;
+                    user.PostCount = 0;
+                    user.TopicCount = 0;
+                    user.JoinedDate = DateTime.Now;
+                    user.LastLogin = DateTime.Now;
+                    user.Active = true;
+                    user.RowVersion = new byte[0];
+                    user.EmailConfirmed = false;
+                    user.PhoneNumberConfirmed = false;
+                    user.TwoFactorEnabled = false;
+                    user.LockoutEnabled = false;
+                    user.AccessFailedCount = 0;
+
+                    if (user.KendoRank == null)
+                    {
+                        user.KendoRank = kendoRankRepository.Get(k => k.KendoRankName == "Mudansha").First();
+                    }
+
+                    //TODO: Update this assignment
+                    user.Profile = new UserProfile()
+                    {
+                        BirthDay = user.DateOfBirth,
+                        Longitude = 0,
+                        Latitude = 0,
+                        AllowHtmlSig = true
+                    };
+
+                    await this.userRepository.InsertAsync(user);
+                    return this.CreatedAtRoute("GetUserById", new { userId = user.Id }, user);
+                } 
             }
             catch (Exception e)
             {

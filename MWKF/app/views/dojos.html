@@ -1,40 +1,57 @@
-<p>This is the dojos view.</p>
+<div class="well well-sm filter">
+  <div>
+    <label for="federationSelect">Federation:</label>
+    <select name="federationSelect" id="federationSelect" ng-model="federationSelect" ng-change="selectDojoByFederation()">
+      <option value="">---Please select---</option> <!-- not selected / blank option -->
+      <option ng-repeat="federation in federationlist | orderBy:'name'" value="{{federation.federationId}}">{{federation.name}}</option>
+    </select>
+  </div>
+  <div>
+    <label for="stateSelect">State:</label>
+    <select name="stateSelect" id="stateSelect" ng-model="stateSelect" ng-change="selectDojosByState()">
+      <option value="">---Please select---</option> <!-- not selected / blank option -->
+      <option ng-repeat="state in stateslist | orderBy: 'item1'" value="{{state.item2}}">{{state.item1}}</option>
+    </select>
+  </div>
+</div>
 
 <div class="row" ng-repeat="dojo in dojolist">
-  <div>
-    <div class="well well-sm">
-      <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive"/>
-        </div>
-        <div class="col-sm-6 col-md-8">
-          <h4 ng-bind="dojo.name"></h4>
-          <div ng-bind="dojo.city"></div>
-          <p>
-            <i class="glyphicon glyphicon-envelope"></i>email@example.com
+    <div>
+      <div class="well well-sm">
+        <div class="row">
+          <div class="col-sm-4 col-md-3">
+            <img src="http://placehold.it/200x250" alt="" class="img-rounded img-responsive"/>
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <h3 ng-bind="dojo.dojoName"></h3>
+            <i class="glyphicon glyphicon-envelope"></i>
+            <div ng-bind="dojo.address.addressLine1"></div>
+            <div ng-bind="dojo.address.addressLine2"></div>
+            <div ng-bind="dojo.address.city"></div>
+            <div>{{dojo.address.state}}, {{dojo.address.zipCode}}</div>
             <br/>
-            <i class="glyphicon glyphicon-globe"></i><a href="http://kendo.nscl.msu.edu/battlecreek">kendo.nscl.msu.edu/battlecreek</a>
+            <i class="glyphicon glyphicon-phone">{{dojo.phone}}</i>
+            <br>
+            <i class="glyphicon glyphicon-globe"></i><a href="{{dojo.websiteUrl}}">{{dojo.websiteUrl}}</a>
             <br/>
-            <i class="glyphicon glyphicon-gift"></i>June 02, 1988
-          </p>
-          <!-- Split button -->
-          <!--<div class="btn-group">-->
-            <!--<button type="button" class="btn btn-primary">-->
-              <!--Social-->
-            <!--</button>-->
-            <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
-              <!--<span class="caret"></span><span class="sr-only">Social</span>-->
-            <!--</button>-->
-            <!--<ul class="dropdown-menu" role="menu">-->
-              <!--<li><a href="#">Twitter</a></li>-->
-              <!--<li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>-->
-              <!--<li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>-->
-              <!--<li class="divider"></li>-->
-              <!--<li><a href="#">Github</a></li>-->
-            <!--</ul>-->
-          <!--</div>-->
+            <!-- Split button -->
+            <!--<div class="btn-group">-->
+              <!--<button type="button" class="btn btn-primary">-->
+                <!--Social-->
+              <!--</button>-->
+              <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                <!--<span class="caret"></span><span class="sr-only">Social</span>-->
+              <!--</button>-->
+              <!--<ul class="dropdown-menu" role="menu">-->
+                <!--<li><a href="#">Twitter</a></li>-->
+                <!--<li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>-->
+                <!--<li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>-->
+                <!--<li class="divider"></li>-->
+                <!--<li><a href="#">Github</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
